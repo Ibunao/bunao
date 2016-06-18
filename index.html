@@ -1,1 +1,84 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>探照灯</title>
+</head>
+<body>
+	<canvas id="canvas" class="canvas" style="display: block ;margin:0 auto;">你的浏览器不支持canvas</canvas>
+	<script>
+		//用非零环绕原则，填充原则来实现探照灯效果，因为无法清除前面的路径，clip方法未能成功
+		var x=400;
+		var y=300;
+		var r=200;
+		var vx=7;
+		var vy=5.6;
+		window.onload=function(){
+			var canvas=document.getElementById("canvas");
+			var cnt=canvas.getContext("2d");
+			canvas.height=600;
+			canvas.width=1250;
+			
+
+			setInterval(
+				 	function(){
+				 	drawArc(cnt);
+				 	update(cnt);
+				 }, 50);
+
+		}
+
+		//更新数据
+		function update (cnt) {
+			  x+=vx;
+			  y+=vy;
+			  if (x+r>cnt.canvas.width) {
+			  	x=cnt.canvas.width-r;
+			  	vx=-vx;
+			  }else if (x<r) {
+			  	x=r;
+			  	vx=-vx;	
+			  };
+			  if (y+r>cnt.canvas.height) {
+			  	y=cnt.canvas.height-r;
+			  	vy=-vy;
+			  }else if (y<r) {
+			  	y=r;
+			  	vy=-vy;	
+			  };
+			  //window.alert(x+":"+y+":"+vy+":"+vx);
+			  //drawArc(x,y,r,cnt);
+		}
+		//画圆
+		function drawArc (cnt) {
+			 cnt.clearRect(0,0,canvas.width,canvas.height);
+			 cnt.beginPath();
+			 cnt.fillStyle="#6F8A91";
+			 cnt.fillRect(0,0,canvas.width,canvas.height);
+			 var text="I";
+			 var text1="LOVE";
+			 var text2="YOU";
+			 cnt.font="125px 华文新魏";
+			 cnt.fillStyle="#4D4D4D";
+			 cnt.fillText(text,200,350);
+			 cnt.fillStyle="red";
+			 cnt.fillText(text1,400,350);
+			 cnt.fillStyle="#4D4D4D";
+			 cnt.fillText(text2,800,350);
+			 cnt.closePath();
+			 cnt.beginPath();
+			 /*cnt.moveTo(0, 0);
+			 cnt.lineTo(canvas.width,0);
+			 cnt.lineTo(canvas.width,canvas.height);
+			 cnt.lineTo(0,canvas.height);
+			 cnt.lineTo(0,0);*/
+			 cnt.rect(0,0,canvas.width,canvas.height);
+			 cnt.arc(x,y,r,0,2*Math.PI,true);
+			 cnt.closePath();
+			 cnt.fillStyle="black";
+			 cnt.fill();
+			 
+		}
+	</script>
+</body>
+</html>
