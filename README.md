@@ -1,2 +1,2 @@
 # bunao
-just a test
+this is my page.
