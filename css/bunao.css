@@ -1,0 +1,73 @@
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background: url("../images/bg.png") repeat;
+		}
+		#wrapper{
+			width: 960px;
+			position: relative;
+			margin:0px auto;
+			padding:20px 0;
+		}
+		#wrapper>div{
+			background: rgb(255,255,255);
+			transition: 0.5s all  ease-out;
+			border-top:1px solid rgb(210,210,210);
+			border-right:1px solid rgb(210,210,210);
+		}
+		.leftborder{
+			border-left:1px solid rgb(210,210,210);
+		}
+		/*只在最后一行加*/
+		.bottomborder{
+			border-bottom:1px solid rgb(210,210,210);
+		}
+		#wrapper>div:hover{
+			box-shadow:0 2px 15px rgba(0,0,0,0.4) inset;
+		}
+		.girl1{
+			/*margin:0 10px 20px 10px;*/
+			background:rgb(255,255,255);
+			/*float: left;*/
+		}
+		#girl1{
+			height: 400px;
+			text-align: center;
+			background-color: blue;
+		}
+		#girl2{
+			height: 150px;
+			/*float: left;*/
+		}
+		.girl3{
+			height: 250px;
+			background: green;
+		}
+		.footer{
+			height: 100px;
+			margin-top: 80px;
+			background-color: rgb(255,255,255);
+			border-top: 3px solid red;
+			text-align: center;
+		}
+		.footer span{
+			font-size: 20px;
+		}
+		#girl1 img{
+			margin-top: 30px;
+		}
+		#girl1 span{
+			font-variant: small-caps;
+		}
+		#girl1 h3{
+			margin-top: 10px;
+		}
+		.girl3 span{
+			color: #999;
+		}
+		.xcenter{
+			/*text-align: center;*/
+			margin-top: 10px;
+		}
