@@ -2,83 +2,77 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>探照灯</title>
+	<meta name="keywords" content="bunao,不孬,github,IBUNAO,IBunao,ibunao,分享源码">
+	<meta name="description" content="分享源码">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel = "Shortcut Icon" href=images/icon.ico>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bunao.css">
+	<style>
+		body{
+			background: url(images/bg.png) repeat;
+		}
+		#wrapper{
+			width: 960px;
+			position: relative;
+			margin:0px auto;
+			padding:20px 0;
+		}
+		#wrapper>div{
+			background: rgb(255,255,255);
+			transition: 0.5s all  ease-out;
+			border:0.5px solid rgb(210,210,210);
+		}
+		#wrapper>div:hover{
+			box-shadow:0 2px 15px rgba(0,0,0,0.4) inset;
+		}
+		.girl1{
+			/*margin:0 10px 20px 10px;*/
+			background:rgb(255,255,255);
+			/*float: left;*/
+		}
+		#girl1{
+			height: 400px;
+			text-align: center;
+			background-color: blue;
+		}
+		#girl2{
+			height: 150px;
+			/*float: left;*/
+		}
+		.girl3{
+			height: 250px;
+			background: green;
+		}
+		.footer{
+			height: 100px;
+			margin-top: 80px;
+			background-color: rgb(255,255,255);
+			border-top: 3px solid red;
+			text-align: center;
+		}
+		.footer span{
+			font-size: 20px;
+		}
+	</style>
+	<title>Bunao</title>
 </head>
 <body>
-	<canvas id="canvas" class="canvas" style="display: block ;margin:0 auto;">你的浏览器不支持canvas</canvas>
-	<script>
-		//用非零环绕原则，填充原则来实现探照灯效果，因为无法清除前面的路径，clip方法未能成功
-		var x=400;
-		var y=300;
-		var r=200;
-		var vx=7;
-		var vy=5.6;
-		window.onload=function(){
-			var canvas=document.getElementById("canvas");
-			var cnt=canvas.getContext("2d");
-			canvas.height=600;
-			canvas.width=1250;
-			
-
-			setInterval(
-				 	function(){
-				 	drawArc(cnt);
-				 	update(cnt);
-				 }, 50);
-
-		}
-
-		//更新数据
-		function update (cnt) {
-			  x+=vx;
-			  y+=vy;
-			  if (x+r>cnt.canvas.width) {
-			  	x=cnt.canvas.width-r;
-			  	vx=-vx;
-			  }else if (x<r) {
-			  	x=r;
-			  	vx=-vx;	
-			  };
-			  if (y+r>cnt.canvas.height) {
-			  	y=cnt.canvas.height-r;
-			  	vy=-vy;
-			  }else if (y<r) {
-			  	y=r;
-			  	vy=-vy;	
-			  };
-			  //window.alert(x+":"+y+":"+vy+":"+vx);
-			  //drawArc(x,y,r,cnt);
-		}
-		//画圆
-		function drawArc (cnt) {
-			 cnt.clearRect(0,0,canvas.width,canvas.height);
-			 cnt.beginPath();
-			 cnt.fillStyle="#6F8A91";
-			 cnt.fillRect(0,0,canvas.width,canvas.height);
-			 var text="I";
-			 var text1="LOVE";
-			 var text2="YOU";
-			 cnt.font="125px 华文新魏";
-			 cnt.fillStyle="#4D4D4D";
-			 cnt.fillText(text,200,350);
-			 cnt.fillStyle="red";
-			 cnt.fillText(text1,400,350);
-			 cnt.fillStyle="#4D4D4D";
-			 cnt.fillText(text2,800,350);
-			 cnt.closePath();
-			 cnt.beginPath();
-			 /*cnt.moveTo(0, 0);
-			 cnt.lineTo(canvas.width,0);
-			 cnt.lineTo(canvas.width,canvas.height);
-			 cnt.lineTo(0,canvas.height);
-			 cnt.lineTo(0,0);*/
-			 cnt.rect(0,0,canvas.width,canvas.height);
-			 cnt.arc(x,y,r,0,2*Math.PI,true);
-			 cnt.closePath();
-			 cnt.fillStyle="black";
-			 cnt.fill();
-			 
-		}
-	</script>
+	<div id="wrapper" class="container">
+		<div id="girl1" class="girl1 col-md-3"></div>
+		<div id="girl2" class="girl1 col-md-9"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		<div id="" class="girl3 col-md-3"></div>
+		
+	</div>
+	<footer class="footer">
+		<h3><strong>备注:</strong><span>待我灵光乍现,便是此页改版时.</span></h3>
+		<h3><a href="mailto:275122510@qq.com?subject=来自www.bunao.me的意见建议">意见建议</a></h3>
+	</footer>
 </body>
 </html>
